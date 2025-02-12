@@ -12,28 +12,6 @@ A powerful command-line tool that automatically organizes your files into catego
 
 ## Installation
 
-# Create README.md if it doesn't exist
-
-touch README.md
-
-# Write the content to README.md
-
-cat > README.md << 'EOL'
-
-# Sort Files CLI
-
-A powerful command-line tool that automatically organizes your files into categorized folders based on their file types. Keep your directories clean and organized with a simple command.
-
-## Features
-
-- 🚀 Automatically sorts files into predefined categories
-- 📂 Creates organized folders for different file types
-- 🔄 Ability to revert changes
-- 👀 Preview changes before execution
-- ⚡ Fast and efficient file organization
-
-## Installation
-
 Install globally using npm
 npm install -g @tochukwunweke/sort-files-cli
 
