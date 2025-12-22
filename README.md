@@ -128,5 +128,5 @@ MIT
 ## Issues and Contributions
 
 Found a bug or want to contribute? Please visit:
-[GitHub Repository](https://github.com/nwekekent/sort-files-cli)
+[GitHub Repository](https://github.com/nwekeKent/sort-file-cli)
 EOL
