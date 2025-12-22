@@ -7,11 +7,19 @@ import chalk from "chalk";
 import ora from "ora";
 import { fileURLToPath } from "url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const pkg = fs.readJsonSync(path.join(__dirname, "package.json"));
+// Helper to get package info
+function getPackageConfig() {
+	try {
+		const __dirname = path.dirname(fileURLToPath(import.meta.url));
+		const data = fs.readJsonSync(path.join(__dirname, "package.json"));
+		return { version: data.version || "1.0.0" };
+	} catch (e) {
+		return { version: "1.0.0" };
+	}
+}
 
 // Predefined categories and their extensions
-const CATEGORIES = {
+export const CATEGORIES = {
 	images: [
 		"jpg",
 		"jpeg",
@@ -84,14 +92,19 @@ const CATEGORIES = {
 };
 
 program
-	.version(pkg.version)
+	.version(getPackageConfig().version)
 	.description("A CLI tool to sort files into predefined categories")
 	.argument("[dir]", "Directory to sort (defaults to current directory)")
 	.option("-d, --dry-run", "Show what would be done without making changes")
 	.option("-r, --revert", "Revert files back to original directory")
 	.parse(process.argv);
 
-function getCategoryForExtension(extension) {
+/**
+ * Gets the category name for a given file extension.
+ * @param {string} extension - The file extension (without dot).
+ * @returns {string|null} The category name if found, otherwise null.
+ */
+export function getCategoryForExtension(extension) {
 	for (const [category, extensions] of Object.entries(CATEGORIES)) {
 		if (extensions.includes(extension.toLowerCase())) {
 			return category;
@@ -217,4 +230,13 @@ async function sortFiles() {
 	}
 }
 
-sortFiles();
+// Run the tool if this file is being executed directly
+if (
+	process.argv[1] &&
+	(process.argv[1].endsWith("sort-cli.js") ||
+		process.argv[1].endsWith("sort-files"))
+) {
+	sortFiles();
+}
+
+export { sortFiles };

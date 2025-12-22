@@ -1,6 +1,9 @@
 {
   "name": "sort-files-cli",
-  "version": "1.1.1",
+  "version": "1.1.2",
+  "scripts": {
+    "test": "vitest"
+  },
   "description": "A CLI tool to sort files into predefined categories",
   "type": "module",
   "bin": {
@@ -35,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/nwekeKent/sort-file-cli/issues"
   },
-  "homepage": "https://github.com/nwekeKent/sort-file-cli#readme"
+  "homepage": "https://github.com/nwekeKent/sort-file-cli#readme",
+  "devDependencies": {
+    "vitest": "^4.0.16"
+  }
 }
