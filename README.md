@@ -13,7 +13,7 @@ A powerful command-line tool that automatically organizes your files into catego
 ## Installation
 
 Install globally using npm
-npm install -g @tochukwunweke/sort-files-cli
+npm install -g sort-files-cli
 
 ## Usage
 
@@ -56,6 +56,22 @@ The tool organizes files into the following categories:
 #### 🎵 Music
 
 - Supported formats: mp3, wav, flac, m4a, aac, ogg, wma, aiff, alac, mid, midi
+
+#### 💻 Code
+
+- Supported formats: js, py, html, css, ts, json, md, jsx, tsx, c, cpp, java, go
+
+#### ⚙️ Executables
+
+- Supported formats: exe, dmg, pkg, app, sh, bin
+
+#### 📚 E-books
+
+- Supported formats: epub, mobi, azw3, fb2
+
+#### 🔡 Fonts
+
+- Supported formats: ttf, otf, woff, woff2, eot
 
 ### Options
 

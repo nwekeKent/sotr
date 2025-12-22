@@ -5,6 +5,10 @@ import path from "path";
 import { program } from "commander";
 import chalk from "chalk";
 import ora from "ora";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const pkg = fs.readJsonSync(path.join(__dirname, "package.json"));
 
 // Predefined categories and their extensions
 const CATEGORIES = {
@@ -59,10 +63,28 @@ const CATEGORIES = {
 		"mid",
 		"midi",
 	],
+	code: [
+		"js",
+		"py",
+		"html",
+		"css",
+		"ts",
+		"json",
+		"go",
+		"md",
+		"jsx",
+		"tsx",
+		"c",
+		"cpp",
+		"java",
+	],
+	executables: ["exe", "dmg", "pkg", "app", "sh", "bin"],
+	ebooks: ["epub", "mobi", "azw3", "fb2"],
+	fonts: ["ttf", "otf", "woff", "woff2", "eot"],
 };
 
 program
-	.version("1.0.0")
+	.version(pkg.version)
 	.description("A CLI tool to sort files into predefined categories")
 	.argument("[dir]", "Directory to sort (defaults to current directory)")
 	.option("-d, --dry-run", "Show what would be done without making changes")
