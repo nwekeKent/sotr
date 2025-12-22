@@ -10,7 +10,15 @@
     "cli",
     "file-organizer",
     "sorting",
-    "file-management"
+    "file-management",
+    "file-sorter",
+    "automation",
+    "productivity",
+    "desktop-cleanup",
+    "organizer",
+    "node-cli",
+    "utility",
+    "filesystem"
   ],
   "author": "Tochukwu Nweke",
   "license": "MIT",

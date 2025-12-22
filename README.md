@@ -1,132 +1,126 @@
-# Sort Files CLI
+# 📂 Sort Files CLI
 
-A powerful command-line tool that automatically organizes your files into categorized folders based on their file types. Keep your directories clean and organized with a simple command.
+[![npm version](https://img.shields.io/npm/v/sort-files-cli.svg?style=flat-square)](https://www.npmjs.com/package/sort-files-cli)
+[![license](https://img.shields.io/npm/l/sort-files-cli.svg?style=flat-square)](https://github.com/nwekeKent/sort-file-cli/blob/main/LICENSE)
+[![install size](https://img.shields.io/bundlephobia/min/sort-files-cli?style=flat-square)](https://bundlephobia.com/package/sort-files-cli)
 
-## Features
+A sleek, powerful command-line tool that automatically organizes your messy directories into beautiful, categorized folders based on file types. 
 
-- 🚀 Automatically sorts files into predefined categories
-- 📂 Creates organized folders for different file types
-- 🔄 Ability to revert changes
-- 👀 Preview changes before execution
-- ⚡ Fast and efficient file organization
+---
 
-## Installation
+## ✨ Features
 
-Install globally using npm
+- **🚀 Instant Organization**: Sort hundreds of files in milliseconds.
+- **📂 Smart Categorization**: Automatically groups files into Images, Videos, Code, Documents, and more.
+- **� Safety First**: Includes a `--dry-run` mode to preview changes and a `--revert` flag to undo everything.
+- **⚡ Modern UI**: Beautiful terminal output with progress spinners and color-coded feedback.
+- **� Developer Ready**: Supports common programming extensions like JS, PY, GO, TS, and more.
+
+---
+
+## � Before & After
+
+**Before:**
+```text
+Downloads/
+├── vacation.jpg
+├── report.pdf
+├── script.py
+├── archive.zip
+└── notes.txt
+```
+
+**After:**
+```text
+Downloads/
+├── 📸 images/vacation.jpg
+├── 📄 documents/report.pdf, notes.txt
+├── 💻 code/script.py
+└── 📦 archives/archive.zip
+```
+
+---
+
+## 🛠 Installation
+
+Install the tool globally using npm:
+
+```bash
 npm install -g sort-files-cli
+```
 
-## Usage
+---
+
+## 🚀 Usage
 
 ### Basic Commands
 
 ```bash
-# Sort current directory
+# Sort the current directory
 sort-files
 
-# Sort a specific directory
+# Sort a specific folder
 sort-files ~/Downloads
 
-# Preview changes without actually moving files
+# Preview changes without moving any files (Highly Recommended!)
 sort-files --dry-run
 
-# Revert files back to original location
+# Oops! Revert everything back to how it was
 sort-files --revert
 ```
 
-### File Categories
+### 🎛 Options
 
-The tool organizes files into the following categories:
+| Flag | Description |
+| :--- | :--- |
+| `-d, --dry-run` | Preview changes without moving files |
+| `-r, --revert` | Revert files back to their original location |
+| `-h, --help` | Display help information |
+| `-V, --version` | Display version number |
 
-#### 📸 Images
+---
 
-- Supported formats: jpg, jpeg, png, gif, bmp, svg, webp, ico, tiff, raw
+## 📁 Supported Categories
 
-#### 🎥 Videos
+| Category | Icon | Extensions |
+| :--- | :--- | :--- |
+| **Images** | 📸 | jpg, png, gif, svg, webp, ico, raw ... |
+| **Videos** | 🎥 | mp4, mov, avi, mkv, webm ... |
+| **Documents** | 📄 | pdf, docx, txt, xlsx, pptx, csv ... |
+| **Code** | 💻 | js, py, html, css, ts, go, json, md ... |
+| **Archives** | 📦 | zip, rar, 7z, tar, gz, iso ... |
+| **Music** | 🎵 | mp3, wav, flac, m4a, aac ... |
+| **E-books** | 📚 | epub, mobi, azw3, fb2 |
+| **Executables** | ⚙️ | exe, dmg, pkg, app, sh, bin |
+| **Fonts** | 🔡 | ttf, otf, woff, woff2 |
 
-- Supported formats: mp4, mov, avi, mkv, wmv, flv, webm, m4v, mpeg, 3gp
+---
 
-#### 📄 Documents
+## 🛡 How It Works
 
-- Supported formats: pdf, doc, docx, txt, rtf, odt, xls, xlsx, ppt, pptx, csv
+1. **Scanning**: The tool identifies all files in your target directory.
+2. **Analysis**: It checks the file extension against a database of categories.
+3. **Execution**: It safely moves files into categorized subfolders (creating them if they don't exist).
+4. **Cleanup**: Empty category folders are removed when you use the `--revert` command.
 
-#### 📦 Archives
+---
 
-- Supported formats: zip, rar, 7z, tar, gz, bz2, xz, iso
+## 🤝 Contributing
 
-#### 🎵 Music
+Found a bug or have a feature request? 
+1. Fork the [GitHub Repository](https://github.com/nwekeKent/sort-file-cli).
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
-- Supported formats: mp3, wav, flac, m4a, aac, ogg, wma, aiff, alac, mid, midi
+---
 
-#### 💻 Code
+## 📄 License
 
-- Supported formats: js, py, html, css, ts, json, md, jsx, tsx, c, cpp, java, go
+Distributed under the MIT License. See `LICENSE` for more information.
 
-#### ⚙️ Executables
+---
 
-- Supported formats: exe, dmg, pkg, app, sh, bin
-
-#### 📚 E-books
-
-- Supported formats: epub, mobi, azw3, fb2
-
-#### 🔡 Fonts
-
-- Supported formats: ttf, otf, woff, woff2, eot
-
-### Options
-
-```bash
--d, --dry-run    Preview changes without moving files
--r, --revert     Revert files to their original location
--h, --help       Display help information
--V, --version    Display version number
-```
-
-## Examples
-
-```bash
-# Sort Downloads folder with preview
-sort-files ~/Downloads --dry-run
-
-# Sort Desktop folder
-sort-files ~/Desktop
-
-# Revert changes in Downloads folder
-sort-files ~/Downloads --revert
-```
-
-## How It Works
-
-1. **Scanning**: The tool scans the specified directory for files
-2. **Categorizing**: Files are categorized based on their extensions
-3. **Organization**: Files are moved to their respective category folders
-4. **Feedback**: Provides real-time feedback about the sorting process
-
-## Important Notes
-
-- Files without extensions are skipped
-- Files in subdirectories are not affected
-- Category folders are created only when needed
-- Original file names are preserved
-- Use `--dry-run` to preview changes before execution
-
-## Error Handling
-
-- Provides clear error messages
-- Safely handles file conflicts
-- Prevents accidental file overwrites
-- Validates directory permissions
-
-## Author
-
-Tochukwu Nweke
-
-## License
-
-MIT
-
-## Issues and Contributions
-
-Found a bug or want to contribute? Please visit:
-[GitHub Repository](https://github.com/nwekeKent/sort-file-cli)
-EOL
+**Author:** [Tochukwu Nweke](https://github.com/nwekeKent)  
+**Project Link:** [https://github.com/nwekeKent/sort-file-cli](https://github.com/nwekeKent/sort-file-cli)
